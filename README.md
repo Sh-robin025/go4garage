@@ -9,3 +9,7 @@
 ## user registration and vendor registration also separated with a checkbox
 
 ![signup](https://user-images.githubusercontent.com/76779265/119093268-50ff3b00-ba31-11eb-970d-12a7e1c11639.png)
+
+## login and registration error message show in a pop-up
+
+![error](https://user-images.githubusercontent.com/76779265/119093513-9f143e80-ba31-11eb-935d-7305c051c92f.png)
