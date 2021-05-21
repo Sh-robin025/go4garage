@@ -30,7 +30,7 @@ client.connect(err => {
                         message: "UserName already existing"
                     })
                 } else {
-                    const accessToken = jwt.sign({ userName: userName }, process.env.ACCESS_TOKEN_SECRET)
+                    const accessToken = jwt.sign({ userName: userName }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
                     // password srote in database by hashing
                     bcrypt.hash(password, 10).then(hash => {
                         userCollection.insertOne({ userName: userName, password: hash })
@@ -56,7 +56,7 @@ client.connect(err => {
                         message: "UserName already existing"
                     })
                 } else {
-                    const accessToken = jwt.sign({ userName: userName }, process.env.ACCESS_TOKEN_SECRET)
+                    const accessToken = jwt.sign({ userName: userName }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
                     // password srote in database by hashing
                     bcrypt.hash(password, 10).then(hash => {
                         vendorCollection.insertOne({ userName: userName, password: hash })
