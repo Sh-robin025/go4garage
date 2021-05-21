@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 export default function PopUp({ location, message }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  console.log(location, message)
 
   const handleOpen = () => {
     setOpen(true);

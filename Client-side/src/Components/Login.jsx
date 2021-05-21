@@ -52,7 +52,6 @@ export default function Login() {
     const { register, handleSubmit } = useForm();
     const classes = useStyles();
     const history = useHistory()
-    console.log(error)
 
     const onSubmit = data => {
         setError()
