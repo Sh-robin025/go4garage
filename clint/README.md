@@ -13,3 +13,7 @@
 ## login and registration error message show in a pop-up
 
 ![error](https://user-images.githubusercontent.com/76779265/119093513-9f143e80-ba31-11eb-935d-7305c051c92f.png)
+
+## after successfully login or resistration product page will be show
+
+![product](https://user-images.githubusercontent.com/76779265/119094235-96703800-ba32-11eb-9726-77c86f44964e.png)
