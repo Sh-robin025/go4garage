@@ -1,0 +1,30 @@
+
+
+POST http://localhost:8080/user/registration
+Content-Type: application/json
+
+{
+    "userName":"robin025",
+    "password":"1234454"
+}
+
+###
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+    "userName":"robin025",
+    "password":"12334"
+}
+
+###
+POST http://localhost:8080/vendor/login
+Content-Type: application/json
+
+{
+    "userName":"go4garage",
+    "password":"00000"
+}
+
+###
+get http://localhost:8080/vendor/list
