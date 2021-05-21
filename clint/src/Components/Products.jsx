@@ -13,7 +13,7 @@ const Products = () => {
     }, [])
     return (
         <div className="container">
-            <div className="row">
+            <div className="row pt-5 justify-content-center">
                 {
                     products.map(product => <ProductCard product={product} key={product._id} />)
                 }

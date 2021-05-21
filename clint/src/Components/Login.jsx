@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -53,8 +52,10 @@ export default function Login() {
     const { register, handleSubmit } = useForm();
     const classes = useStyles();
     const history = useHistory()
+    console.log(error)
 
     const onSubmit = data => {
+        setError()
         if (isVendor) {
             axios.post('http://localhost:8080/vendor/login', data)
                 .then(res => {
@@ -81,70 +82,54 @@ export default function Login() {
     }
 
     return (
-        <div>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Log in
-                    </Typography>
-                    <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            label="username"
-                            {...register("userName")}
-                            autoFocus
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            {...register("password")}
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox value="remember"
-                                onClick={() => setIsVendor(!isVendor)} color="primary" />}
-                            label="Log in as vendor"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                        >
-                            Sign In
-                        </Button>
-                        <Modal location={'login'} message={error}/>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="/signUp" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                    Log in
+                </Typography>
+                <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="username"
+                        {...register("userName")}
+                        autoFocus
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        {...register("password")}
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox value="remember"
+                            onClick={() => setIsVendor(!isVendor)} color="primary" />}
+                        label="Log in as vendor"
+                    />
+                    <Modal location={'login'} message={error} />
+                    <Grid container>
+                        <Grid item>
+                            <Link href="/signUp" variant="body2">
+                                New User ? Registration here
+                            </Link>
                         </Grid>
-                    </form>
-                </div>
-                <Box mt={8}>
-                    <Copyright />
-                </Box>
-            </Container>
-        </div>
+                    </Grid>
+                </form>
+            </div>
+            <Box mt={8}>
+                <Copyright />
+            </Box>
+        </Container>
     );
 }

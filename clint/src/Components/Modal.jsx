@@ -17,14 +17,15 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-    },
+  submit: {
+    margin: theme.spacing(0, 0, 2),
+  },
 }));
 
-export default function PopUp({location,message}) {
+export default function PopUp({ location, message }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  console.log(location, message)
 
   const handleOpen = () => {
     setOpen(true);
@@ -36,33 +37,34 @@ export default function PopUp({location,message}) {
 
   return (
     <div>
-      <Button type="submit" fullWidth
-      variant="contained"
-    className={classes.submit}
-       onClick={handleOpen}>
-        {
-            location === 'login' && 'LOG IN'
-        }
+      <Button type="submit" fullWidth style={{ background: '#f79837' }}
+        variant="contained"
+        className={classes.submit}
+        onClick={handleOpen}>
+        {location === 'login' && 'LOG IN'}
+        {location === 'signUp' && 'SIGN UP'}
       </Button>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">error</h2>
-            <p id="transition-modal-description">{message}</p>
-          </div>
-        </Fade>
-      </Modal>
+      {
+        message && <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title" className="text-center">error</h2>
+              <h5 id="transition-modal-description" className="text-danger">{message}</h5>
+            </div>
+          </Fade>
+        </Modal>
+      }
     </div>
   );
 }

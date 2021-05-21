@@ -22,7 +22,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                go4garage
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-    },
+    }
 }));
 
 export default function SignUp() {
@@ -55,9 +55,10 @@ export default function SignUp() {
     const [isVendor, setIsVendor] = useState(false);
     const [error, setError] = useState();
     const classes = useStyles();
-    const history = useHistory()
+    const history = useHistory();
 
     const onSubmit = data => {
+        setError()
         if (isVendor) {
             axios.post('http://localhost:8080/vendor/registration', data)
                 .then(res => {
@@ -123,16 +124,7 @@ export default function SignUp() {
                             />
                         </Grid>
                     </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                    >
-                        Sign Up
-                    </Button>
-                        <Modal location={'signUp'}/>
+                    <Modal location={'signUp'} message={error} />
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/login" variant="body2">
