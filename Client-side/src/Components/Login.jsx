@@ -87,7 +87,8 @@ export default function Login() {
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography component="h1" variant="h5"
+                style={{ fontFamily: "'Acme', sans-serif" }}>
                     Log in
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -119,7 +120,8 @@ export default function Login() {
                     <Modal location={'login'} message={error} />
                     <Grid container>
                         <Grid item>
-                            <Link href="/signUp" variant="body2">
+                            <Link href="/signUp" variant="body2"
+                            style={{ fontFamily: "'Acme', sans-serif" }}>
                                 New User ? Registration here
                             </Link>
                         </Grid>

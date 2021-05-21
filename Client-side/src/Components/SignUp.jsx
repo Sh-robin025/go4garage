@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -88,7 +87,8 @@ export default function SignUp() {
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography component="h1" variant="h5"
+                    style={{ fontFamily: "'Acme', sans-serif" }}>
                     Sign up
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -127,7 +127,8 @@ export default function SignUp() {
                     <Modal location={'signUp'} message={error} />
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="/login" variant="body2">
+                            <Link href="/login" variant="body2"
+                                style={{ fontFamily: "'Acme', sans-serif" }}>
                                 Already have an account? Log in
                             </Link>
                         </Grid>
