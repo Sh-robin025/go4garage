@@ -4,7 +4,7 @@
 
 http://localhost:8080/user/registration
 
-## Vendor registration request by post method to...
+## Vendor send registration request by post method to...
 
 http://localhost:8080/vendor/registration
 
